@@ -66,6 +66,13 @@ Peça ao agente, nesta ordem:
 2. **Lista de funções** com prova de onde cada uma está e o que ficou sem resposta (o REA devolve evidência e limites; não aceite "achismo").
 3. **Plano da sua versão:** só as funções que você usa, mais as que faltam no original. Aprove o plano antes de o agente escrever código.
 
+Para cada função do plano, o agente segue o mesmo método curto ([seção Método do guia](https://inematds.github.io/rea-engenharia-reversa/guia/#metodo)):
+
+- **Uma função por vez.** "Como a busca acha a nota com três letras?", não "reverta o app".
+- **Resumo primeiro.** Lê a visão geral da análise (`detail: "summary"`), abre um módulo e rastreia só aquela função. Não roda a mesma análise de novo: guarda o resultado.
+- **Marca cada achado** como **visto** (nos arquivos, com trecho citado), **inferido** (dedução ainda sem prova) ou **desconhecido** (o REA não alcança, como o servidor). O desconhecido vira decisão sua: substituir, deixar de fora ou testar.
+- **Ler o código não prova que ele roda assim.** O teste contra o original é que prova.
+
 ## 4. Construa a sua versão (não uma cópia)
 
 - **Escreva do zero**, a partir do comportamento observado. Não copie código, ícones, marca nem textos do original.
@@ -107,7 +114,8 @@ E virou ferramenta de uso diário.
 Quero fazer a minha própria versão do app <NOME>, para uso pessoal.
 1. Use o REA para mapear o app em <CAMINHO>: telas, módulos, formatos
    de arquivo e o que roda local versus o que depende de servidor.
-   Mostre a evidência de cada conclusão e o que ficou sem resposta.
+   Leia o resumo primeiro e rastreie uma função por vez. Marque cada
+   conclusão como vista, inferida ou desconhecida, com a evidência.
 2. Proponha um plano com só estas funções: <LISTA>, mais estas que o
    original não tem: <LISTA>. Para cada função de nuvem, sugira um
    serviço ou modelo local que a substitua. Espere eu aprovar.

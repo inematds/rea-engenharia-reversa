@@ -48,7 +48,7 @@
   nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
   nav .links a.sec{color:var(--mut);white-space:nowrap}
 @media(max-width:1260px){nav .links a.sec{display:none}}
-@media(max-width:1720px){nav .links a.sec.opt{display:none}} nav .links a.sec:hover{color:var(--txt)}
+@media(max-width:1900px){nav .links a.sec.opt{display:none}} nav .links a.sec:hover{color:var(--txt)}
   .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
   .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
   .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
@@ -100,6 +100,7 @@
   .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
   .phase .d strong{display:block;margin-bottom:.2em}
   .phase .d span{color:var(--mut);font-size:.92rem}
+  .aviso{border:1px solid var(--line);border-left:3px solid var(--amb);background:var(--card);border-radius:10px;padding:12px 16px;color:var(--mut);font-size:.92rem;max-width:74ch;margin:0 0 26px}
   footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
   .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
   .tbl{width:100%;border-collapse:collapse;margin:0 0 22px;font-size:.95rem}
@@ -126,6 +127,7 @@
     <a class="sec opt" href="#dentro">Por dentro</a>
     <a class="sec" href="#plataformas">Sin trabas</a>
     <a class="sec" href="#guia">Empezar</a>
+    <a class="sec" href="#metodo">Método</a>
     <a class="sec opt" href="#exemplos">Casos</a>
     <a class="sec opt" href="#teste64">Prueba 6.4</a>
     <a class="sec" href="#videos">Videos</a>
@@ -305,6 +307,72 @@
 <pre><span class="s">"Entiende cómo funciona la búsqueda en la app X, muéstrame la evidencia
 y haz algo parecido en mi proyecto."</span></pre>
   </div></div>
+</div></section>
+
+<section id="metodo"><div class="wrap">
+  <span class="chip">Método · 5 pasos</span>
+  <h2>Una función a la vez, con pruebas antes de construir</h2>
+  <p class="sub">REA trae la evidencia y tu agente escribe el código. El método de abajo es lo que separa una copia mal hecha de una versión propia que funciona.</p>
+  <p class="aviso"><b>Ejemplo simulado.</b> Para ilustrar, imaginamos a REA estudiando la búsqueda rápida (Ctrl+O) de Obsidian, una app Electron. No corrimos esta prueba: los hallazgos de abajo muestran la <i>forma</i> del trabajo, no un resultado medido.</p>
+
+  <div class="grid g2" style="margin-bottom:34px">
+    <div class="card"><h3>🎂 El pastel y la receta</h3><p>La empresa guarda la receta, que es el código fuente. Tú tienes el pastel, que es la app instalada. REA prueba el pastel y el agente deduce una receta aproximada, sin los nombres originales. Después horneas el tuyo y comparas, hasta que el sabor coincida.</p></div>
+    <div class="card"><h3>📚 El libro de la biblioteca</h3><p>No necesitas ser dueño de la app, necesitas tener derecho a examinarla. Leer y aprender, sí. Fotocopiar y vender (copiar el código), romper el candado (DRM) o pasar a escondidas por el mostrador (trampas, logins), no.</p></div>
+  </div>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Elige una función, no la app entera</h3>
+    <p>Un pedido amplio da una respuesta vaga. Pregunta por un comportamiento que puedas ver y probar.</p>
+    <div class="tblwrap"><table class="tbl"><thead><tr><th>Demasiado amplio</th><th>Enfocado</th></tr></thead><tbody>
+      <tr><td>"Haz ingeniería inversa de Obsidian"</td><td>¿Cómo encuentra la búsqueda rápida la nota correcta con solo tres letras?<br>¿Cómo un <code>[[enlace]]</code> se convierte en una línea del gráfico de notas?<br>¿Cómo nota la app que un archivo cambió fuera de ella?</td></tr>
+    </tbody></table></div>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>De qué está hecha la app define la herramienta</h3>
+    <p>Obsidian es Electron: el JavaScript viene dentro de <code>app.asar</code>, y el analizador de JavaScript de REA alcanza. Gratis, sin Ghidra y sin ejecutar la app.</p>
+    <div class="tblwrap"><table class="tbl"><thead><tr><th>Tipo de app</th><th>Ejemplos</th><th>Herramienta</th></tr></thead><tbody>
+      <tr><td>Escritorio Electron</td><td>Obsidian, Notion, Slack</td><td>Analizador de JavaScript de REA (gratis)</td></tr>
+      <tr><td>Programa nativo</td><td><code>.exe</code>, <code>.app</code>, juegos</td><td>Ghidra (gratis), Hopper o IDA</td></tr>
+      <tr><td>Sitio web</td><td>cualquiera</td><td>Herramientas del navegador: solo lo que te llega</td></tr>
+      <tr><td>Android o .NET</td><td>APK, DLL</td><td>Analizadores propios de cada formato</td></tr>
+    </tbody></table></div>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Primero el resumen, después una pieza</h3>
+    <p>El análisis de una app entera es grande: en nuestra prueba de la 6.4.0, una app Electron de 210 archivos generó un JSON de 41 MB. El agente no necesita leerlo todo. Lee la visión general (<code>detail: "summary"</code>), abre el módulo de búsqueda y rastrea solo esa función. Y no repite el mismo análisis: guarda el resultado y vuelve a él.</p>
+    <div class="flow"><span>Análisis completo</span><span class="arr">→</span><span>Resumen</span><span class="arr">→</span><span>Un módulo</span><span class="arr">→</span><span>Una función rastreada</span></div>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Marca cada hallazgo: visto, inferido o desconocido</h3>
+    <p>Antes de construir sobre un hallazgo, di de qué tipo es. En el ejemplo simulado:</p>
+    <div class="grid g3" style="margin:6px 0 14px">
+      <div class="card"><span class="num">✓</span><h3>Visto</h3><p>Está en los archivos, con el fragmento citado. <i>"La lista de notas vive en memoria y se filtra con cada tecla."</i></p></div>
+      <div class="card"><span class="num">≈</span><h3>Inferido</h3><p>Una deducción cuidadosa, aún sin prueba. <i>"Una letra al inicio de la palabra parece valer más que una en el medio."</i></p></div>
+      <div class="card"><span class="num">?</span><h3>Desconocido</h3><p>Fuera del alcance de REA. <i>"El Sync pago resuelve conflictos en el servidor de la empresa."</i></p></div>
+    </div>
+    <p>Lo desconocido no es una derrota: se vuelve una decisión de diseño. Sin acceso al servidor del Sync, nuestra versión guarda las notas en una carpeta local y listo. Y recuerda: leer el código no prueba que se ejecute así. Lo prueba el test.</p>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Reconstruye el comportamiento, con código tuyo, y prueba</h3>
+    <p>Cada hallazgo se vuelve una decisión y una prueba contra el original. Nunca copies código, íconos ni textos de la app.</p>
+    <div class="tblwrap"><table class="tbl"><thead><tr><th>Hallazgo (simulado)</th><th>Qué significa</th><th>Nuestra decisión</th></tr></thead><tbody>
+      <tr><td>Filtro en memoria con cada tecla</td><td>Rápido con miles de notas, sin base de datos</td><td>Lista en memoria y filtro escrito desde cero</td></tr>
+      <tr><td>El inicio de palabra vale más</td><td>Es inferido: falta confirmarlo</td><td>30 búsquedas iguales en las dos apps; la meta es la misma primera nota en todas</td></tr>
+      <tr><td>Sync en el servidor</td><td>Fuera del alcance de REA</td><td>Fuera del alcance: carpeta local</td></tr>
+    </tbody></table></div>
+    <p>¿Encontraste una diferencia? Vuelve al paso 3, rastrea el punto exacto y ajusta. Meta final: el mismo comportamiento y cero líneas copiadas.</p>
+  </div></div>
+
+  <h3 style="margin:10px 0 .5em">Prompt listo (cambia lo que está entre corchetes)</h3>
+<pre><span class="s">Usa REA para entender cómo funciona [la búsqueda rápida (Ctrl+O)] en [Obsidian].
+Primero el resumen. Rastrea solo esa función.
+Marca cada hallazgo como visto, inferido o desconocido.
+Después construye mi versión, con mi propio código, y pruébala contra el original.</span></pre>
+  <p class="sub" style="margin-top:.8em">¿No programas? Detente en la tercera línea y pide solo el informe en español sencillo.</p>
 </div></section>
 
 <section id="exemplos"><div class="wrap">

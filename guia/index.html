@@ -48,7 +48,7 @@
   nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
   nav .links a.sec{color:var(--mut);white-space:nowrap}
 @media(max-width:1260px){nav .links a.sec{display:none}}
-@media(max-width:1720px){nav .links a.sec.opt{display:none}} nav .links a.sec:hover{color:var(--txt)}
+@media(max-width:1900px){nav .links a.sec.opt{display:none}} nav .links a.sec:hover{color:var(--txt)}
   .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
   .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
   .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
@@ -100,6 +100,7 @@
   .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
   .phase .d strong{display:block;margin-bottom:.2em}
   .phase .d span{color:var(--mut);font-size:.92rem}
+  .aviso{border:1px solid var(--line);border-left:3px solid var(--amb);background:var(--card);border-radius:10px;padding:12px 16px;color:var(--mut);font-size:.92rem;max-width:74ch;margin:0 0 26px}
   footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
   .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
   .tbl{width:100%;border-collapse:collapse;margin:0 0 22px;font-size:.95rem}
@@ -126,6 +127,7 @@
     <a class="sec opt" href="#dentro">Por dentro</a>
     <a class="sec" href="#plataformas">Sem travas</a>
     <a class="sec" href="#guia">Começar</a>
+    <a class="sec" href="#metodo">Método</a>
     <a class="sec opt" href="#exemplos">Casos</a>
     <a class="sec opt" href="#teste64">Teste 6.4</a>
     <a class="sec" href="#videos">Vídeos</a>
@@ -305,6 +307,72 @@
 <pre><span class="s">"Entenda como a busca funciona no app X, me mostre a evidência
 e faça algo parecido no meu projeto."</span></pre>
   </div></div>
+</div></section>
+
+<section id="metodo"><div class="wrap">
+  <span class="chip">Método · 5 passos</span>
+  <h2>Uma função por vez, com prova antes de construir</h2>
+  <p class="sub">O REA traz a evidência e o seu agente escreve o código. O método abaixo é o que separa uma cópia mal feita de uma versão sua que funciona.</p>
+  <p class="aviso"><b>Exemplo simulado.</b> Para ilustrar, imaginamos o REA estudando a busca rápida (Ctrl+O) do Obsidian, um app Electron. Não rodamos esse teste: os achados abaixo mostram o <i>formato</i> do trabalho, não um resultado medido.</p>
+
+  <div class="grid g2" style="margin-bottom:34px">
+    <div class="card"><h3>🎂 O bolo e a receita</h3><p>A empresa guarda a receita, que é o código-fonte. Você tem o bolo, que é o app instalado. O REA prova o bolo e o agente deduz uma receita aproximada, sem os nomes originais. Depois você assa o seu e compara, até o gosto bater.</p></div>
+    <div class="card"><h3>📚 O livro da biblioteca</h3><p>Você não precisa ser dono do app, precisa ter o direito de examiná-lo. Ler e aprender pode. Fotocopiar e vender (copiar o código), quebrar o cadeado (DRM) ou passar escondido pelo balcão (trapaça, login) não pode.</p></div>
+  </div>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Escolha uma função, não o app inteiro</h3>
+    <p>Pedido amplo dá resposta vaga. Pergunte sobre um comportamento que você consegue ver e testar.</p>
+    <div class="tblwrap"><table class="tbl"><thead><tr><th>Amplo demais</th><th>Focado</th></tr></thead><tbody>
+      <tr><td>"Reverta o Obsidian"</td><td>Como a busca rápida acha a nota certa com só três letras?<br>Como um <code>[[link]]</code> vira linha no gráfico de notas?<br>Como o app percebe que um arquivo mudou fora dele?</td></tr>
+    </tbody></table></div>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Do que o app é feito define a ferramenta</h3>
+    <p>O Obsidian é Electron: o JavaScript vem junto no <code>app.asar</code>, e o analisador de JavaScript do REA basta. Grátis, sem Ghidra e sem executar o app.</p>
+    <div class="tblwrap"><table class="tbl"><thead><tr><th>Tipo de app</th><th>Exemplos</th><th>Ferramenta</th></tr></thead><tbody>
+      <tr><td>Desktop Electron</td><td>Obsidian, Notion, Slack</td><td>Analisador de JavaScript do REA (grátis)</td></tr>
+      <tr><td>Programa nativo</td><td><code>.exe</code>, <code>.app</code>, jogos</td><td>Ghidra (grátis), Hopper ou IDA</td></tr>
+      <tr><td>Site</td><td>qualquer um</td><td>Ferramentas do navegador: só o que chega até você</td></tr>
+      <tr><td>Android ou .NET</td><td>APK, DLL</td><td>Analisadores próprios de cada formato</td></tr>
+    </tbody></table></div>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Resumo primeiro, depois uma peça</h3>
+    <p>A análise de um app inteiro é grande: no nosso teste da 6.4.0, um app Electron de 210 arquivos gerou um JSON de 41 MB. O agente não precisa ler tudo. Ele lê a visão geral (<code>detail: "summary"</code>), abre o módulo da busca e rastreia só essa função. E não roda a mesma análise duas vezes: guarda o resultado e volta nele.</p>
+    <div class="flow"><span>Análise completa</span><span class="arr">→</span><span>Resumo</span><span class="arr">→</span><span>Um módulo</span><span class="arr">→</span><span>Uma função rastreada</span></div>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Marque cada achado: visto, inferido ou desconhecido</h3>
+    <p>Antes de construir em cima de um achado, diga de que tipo ele é. No exemplo simulado:</p>
+    <div class="grid g3" style="margin:6px 0 14px">
+      <div class="card"><span class="num">✓</span><h3>Visto</h3><p>Está nos arquivos, com trecho citado. <i>"A lista de notas fica na memória e é filtrada a cada tecla."</i></p></div>
+      <div class="card"><span class="num">≈</span><h3>Inferido</h3><p>Dedução cuidadosa, ainda sem prova. <i>"Letra no começo da palavra parece valer mais pontos que letra no meio."</i></p></div>
+      <div class="card"><span class="num">?</span><h3>Desconhecido</h3><p>O REA não alcança. <i>"O Sync pago resolve conflitos no servidor da empresa."</i></p></div>
+    </div>
+    <p>O desconhecido não é derrota: vira decisão de projeto. Sem acesso ao servidor do Sync, a nossa versão guarda as notas numa pasta local e pronto. E lembre: ler o código não prova que ele roda daquele jeito. Quem prova é o teste.</p>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Reconstrua o comportamento, com código seu, e teste</h3>
+    <p>Cada achado vira uma decisão e um teste contra o original. Nunca copie código, ícones nem textos do app.</p>
+    <div class="tblwrap"><table class="tbl"><thead><tr><th>Achado (simulado)</th><th>O que significa</th><th>Nossa decisão</th></tr></thead><tbody>
+      <tr><td>Filtro em memória a cada tecla</td><td>Rápido com milhares de notas, sem banco de dados</td><td>Lista em memória e filtro escrito do zero</td></tr>
+      <tr><td>Começo de palavra vale mais</td><td>É inferido: falta confirmar</td><td>30 buscas iguais nos dois apps; a meta é a mesma 1ª nota em todas</td></tr>
+      <tr><td>Sync no servidor</td><td>Fora do alcance do REA</td><td>Fora do escopo: pasta local</td></tr>
+    </tbody></table></div>
+    <p>Encontrou diferença? Volte ao passo 3, rastreie o ponto exato e ajuste. Meta final: o mesmo comportamento e zero linha copiada.</p>
+  </div></div>
+
+  <h3 style="margin:10px 0 .5em">Prompt pronto (troque o que está entre colchetes)</h3>
+<pre><span class="s">Use o REA para entender como funciona [a busca rápida (Ctrl+O)] no [Obsidian].
+Resumo primeiro. Rastreie só essa função.
+Marque cada achado como visto, inferido ou desconhecido.
+Depois construa a minha versão, com código meu, e teste contra o original.</span></pre>
+  <p class="sub" style="margin-top:.8em">Não programa? Pare na terceira linha e peça só o relatório em português simples.</p>
 </div></section>
 
 <section id="exemplos"><div class="wrap">
