@@ -372,7 +372,66 @@ e faça algo parecido no meu projeto."</span></pre>
 Resumo primeiro. Rastreie só essa função.
 Marque cada achado como visto, inferido ou desconhecido.
 Depois construa a minha versão, com código meu, e teste contra o original.</span></pre>
-  <p class="sub" style="margin-top:.8em">Não programa? Pare na terceira linha e peça só o relatório em português simples.</p>
+  <p class="sub" style="margin-top:.8em">Não programa? Pare na terceira linha e peça só o relatório em português simples. <a href="#leigo">Veja o roteiro completo, passo a passo.</a></p>
+</div></section>
+
+<section id="leigo"><div class="wrap">
+  <span class="chip">Na prática · para quem não programa</span>
+  <h2>O meu caderno de notas, a partir do Obsidian instalado no seu PC</h2>
+  <p class="sub">Não é para copiar o Obsidian inteiro de uma vez. É para fazer o <b>seu</b> caderno, uma função por rodada, usando o método acima. Roteiro para Windows.</p>
+  <p class="aviso"><b>Antes de tudo:</b> leia os termos de uso do Obsidian. Estudar para uso pessoal é o terreno seguro. Distribuir ou vender o resultado, ou copiar código, ícones e textos do app, não é.</p>
+
+  <div class="step"><div class="b">0</div><div>
+    <h3>Prepare uma vez só</h3>
+    <p>Instale o <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a> (versão LTS: avançar, avançar, concluir) e tenha o Claude Code ou o Codex instalado e logado na sua assinatura.</p>
+  </div></div>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Separe uma cópia do app</h3>
+    <p>No Explorador, cole na barra de endereço a pasta abaixo. Copie o arquivo <code>.asar</code> para <code>C:\projetos\meu-caderno\alvo\</code>. O Obsidian costuma ter dois (<code>app.asar</code> e <code>obsidian.asar</code>); o principal costuma ser o <code>obsidian.asar</code>. Na dúvida, copie os dois. Assim você trabalha na cópia, sem mexer no Obsidian que usa.</p>
+<pre><span class="s">%LOCALAPPDATA%\Programs\Obsidian\resources</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Instale o REA</h3>
+    <p>No cmd. Ele pergunta qual agente você usa: escolha o seu, aceite e depois feche e abra o agente de novo.</p>
+<pre><span class="k">npx rea-agents setup</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Abra o agente na pasta</h3>
+<pre><span class="k">cd</span> C:\projetos\meu-caderno
+<span class="k">claude</span>          <span class="c"># ou: codex</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Primeiro só entender</h3>
+    <p>Cole o pedido e leia o relatório. Se algo não ficar claro, pergunte: "o que quer dizer isso?".</p>
+<pre><span class="s">Use o REA para entender como funciona a busca rápida (Ctrl+O)
+no arquivo alvo\obsidian.asar.
+Resumo primeiro. Rastreie só essa função.
+Marque cada achado como visto, inferido ou desconhecido.
+Me explique em português simples. Não construa nada ainda.</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Depois construir a sua versão</h3>
+<pre><span class="s">Agora crie, do zero e com código seu, um caderno de notas simples:
+- abre uma pasta de notas .md
+- tem a busca rápida que você estudou
+Não copie código, ícones nem textos do Obsidian.
+Depois rode, teste 10 buscas nas duas e me mostre as diferenças.</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Repita, uma função por rodada</h3>
+    <p>Mesmo par de pedidos ("entenda X", depois "acrescente X"): os links <code>[[nota]]</code>, o gráfico de notas, perceber quando um arquivo muda fora do app, o tema escuro. Corrija uma diferença por vez e teste sempre com as suas notas de verdade.</p>
+  </div></div>
+
+  <div class="grid g2" style="margin-top:8px">
+    <div class="card"><h3>O que não vem</h3><p>O que roda no servidor: Sync pago, Publish e a loja de plugins. O REA não enxerga. Na sua versão, as notas ficam numa pasta local; para sincronizar, use Google Drive ou OneDrive.</p></div>
+    <div class="card"><h3>Se der erro no Windows</h3><p>Algumas ferramentas do REA só funcionam no Linux. Aí rode o mesmo roteiro no WSL ou numa VPS, como no OSWork.</p></div>
+  </div>
 </div></section>
 
 <section id="exemplos"><div class="wrap">

@@ -371,7 +371,66 @@ and build something similar in my project."</span></pre>
 Summary first. Trace only that feature.
 Label each finding as seen, inferred or unknown.
 Then build my own version, with my own code, and test it against the original.</span></pre>
-  <p class="sub" style="margin-top:.8em">Not a coder? Stop after the third line and ask for the plain-English report only.</p>
+  <p class="sub" style="margin-top:.8em">Not a coder? Stop after the third line and ask for the plain-English report only. <a href="#leigo">See the full step-by-step walkthrough.</a></p>
+</div></section>
+
+<section id="leigo"><div class="wrap">
+  <span class="chip">In practice · for non-coders</span>
+  <h2>My own notes app, from the Obsidian installed on your PC</h2>
+  <p class="sub">This is not about copying all of Obsidian at once. It's about building <b>your</b> notes app, one feature per round, with the method above. Walkthrough for Windows.</p>
+  <p class="aviso"><b>First of all:</b> read Obsidian's terms of use. Studying it for personal use is the safe ground. Distributing or selling the result, or copying the app's code, icons and text, is not.</p>
+
+  <div class="step"><div class="b">0</div><div>
+    <h3>Set up once</h3>
+    <p>Install <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a> (LTS version: next, next, finish) and have Claude Code or Codex installed and signed in with your subscription.</p>
+  </div></div>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Make a copy of the app</h3>
+    <p>In File Explorer, paste the folder below into the address bar. Copy the <code>.asar</code> file to <code>C:\projects\my-notes\target\</code>. Obsidian usually has two (<code>app.asar</code> and <code>obsidian.asar</code>); the main one is usually <code>obsidian.asar</code>. If unsure, copy both. That way you work on the copy and never touch the Obsidian you use.</p>
+<pre><span class="s">%LOCALAPPDATA%\Programs\Obsidian\resources</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Install REA</h3>
+    <p>In cmd. It asks which agent you use: pick yours, accept, then close and reopen the agent.</p>
+<pre><span class="k">npx rea-agents setup</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Open the agent in the folder</h3>
+<pre><span class="k">cd</span> C:\projects\my-notes
+<span class="k">claude</span>          <span class="c"># or: codex</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Understand first</h3>
+    <p>Paste the request and read the report. If something isn't clear, ask: "what does that mean?".</p>
+<pre><span class="s">Use REA to learn how the quick switcher (Ctrl+O) works
+in the file target\obsidian.asar.
+Summary first. Trace only that feature.
+Label each finding as seen, inferred or unknown.
+Explain it to me in plain English. Don't build anything yet.</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Then build your version</h3>
+<pre><span class="s">Now create, from scratch and with your own code, a simple notes app:
+- opens a folder of .md notes
+- has the quick switcher you studied
+Don't copy Obsidian's code, icons or text.
+Then run it, test 10 searches in both and show me the differences.</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Repeat, one feature per round</h3>
+    <p>Same pair of requests ("understand X", then "add X"): <code>[[note]]</code> links, the graph view, noticing when a file changes outside the app, dark theme. Fix one difference at a time and always test with your real notes.</p>
+  </div></div>
+
+  <div class="grid g2" style="margin-top:8px">
+    <div class="card"><h3>What doesn't come along</h3><p>Whatever runs on the server: paid Sync, Publish and the plugin store. REA can't see them. In your version, notes live in a local folder; to sync, use Google Drive or OneDrive.</p></div>
+    <div class="card"><h3>If it fails on Windows</h3><p>Some REA tools only work on Linux. Then run the same walkthrough in WSL or on a VPS.</p></div>
+  </div>
 </div></section>
 
 <section id="exemplos"><div class="wrap">

@@ -372,7 +372,66 @@ y haz algo parecido en mi proyecto."</span></pre>
 Primero el resumen. Rastrea solo esa función.
 Marca cada hallazgo como visto, inferido o desconocido.
 Después construye mi versión, con mi propio código, y pruébala contra el original.</span></pre>
-  <p class="sub" style="margin-top:.8em">¿No programas? Detente en la tercera línea y pide solo el informe en español sencillo.</p>
+  <p class="sub" style="margin-top:.8em">¿No programas? Detente en la tercera línea y pide solo el informe en español sencillo. <a href="#leigo">Mira la guía completa, paso a paso.</a></p>
+</div></section>
+
+<section id="leigo"><div class="wrap">
+  <span class="chip">En la práctica · para quien no programa</span>
+  <h2>Mi propio cuaderno de notas, a partir del Obsidian instalado en tu PC</h2>
+  <p class="sub">No se trata de copiar todo Obsidian de una vez. Se trata de hacer <b>tu</b> cuaderno, una función por ronda, con el método de arriba. Guía para Windows.</p>
+  <p class="aviso"><b>Antes que nada:</b> lee los términos de uso de Obsidian. Estudiarlo para uso personal es el terreno seguro. Distribuir o vender el resultado, o copiar código, íconos y textos de la app, no lo es.</p>
+
+  <div class="step"><div class="b">0</div><div>
+    <h3>Prepara una sola vez</h3>
+    <p>Instala <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a> (versión LTS: siguiente, siguiente, finalizar) y ten Claude Code o Codex instalado y con sesión iniciada en tu suscripción.</p>
+  </div></div>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Separa una copia de la app</h3>
+    <p>En el Explorador, pega la carpeta de abajo en la barra de direcciones. Copia el archivo <code>.asar</code> a <code>C:\proyectos\mi-cuaderno\objetivo\</code>. Obsidian suele tener dos (<code>app.asar</code> y <code>obsidian.asar</code>); el principal suele ser <code>obsidian.asar</code>. Si dudas, copia los dos. Así trabajas sobre la copia, sin tocar el Obsidian que usas.</p>
+<pre><span class="s">%LOCALAPPDATA%\Programs\Obsidian\resources</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Instala REA</h3>
+    <p>En el cmd. Pregunta qué agente usas: elige el tuyo, acepta y después cierra y vuelve a abrir el agente.</p>
+<pre><span class="k">npx rea-agents setup</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Abre el agente en la carpeta</h3>
+<pre><span class="k">cd</span> C:\proyectos\mi-cuaderno
+<span class="k">claude</span>          <span class="c"># o: codex</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Primero solo entender</h3>
+    <p>Pega el pedido y lee el informe. Si algo no queda claro, pregunta: "¿qué quiere decir esto?".</p>
+<pre><span class="s">Usa REA para entender cómo funciona la búsqueda rápida (Ctrl+O)
+en el archivo objetivo\obsidian.asar.
+Primero el resumen. Rastrea solo esa función.
+Marca cada hallazgo como visto, inferido o desconocido.
+Explícamelo en español sencillo. No construyas nada todavía.</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Después construir tu versión</h3>
+<pre><span class="s">Ahora crea, desde cero y con tu propio código, un cuaderno de notas simple:
+- abre una carpeta de notas .md
+- tiene la búsqueda rápida que estudiaste
+No copies código, íconos ni textos de Obsidian.
+Después ejecútalo, prueba 10 búsquedas en los dos y muéstrame las diferencias.</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Repite, una función por ronda</h3>
+    <p>El mismo par de pedidos ("entiende X", después "agrega X"): los enlaces <code>[[nota]]</code>, el gráfico de notas, notar cuando un archivo cambia fuera de la app, el tema oscuro. Corrige una diferencia a la vez y prueba siempre con tus notas reales.</p>
+  </div></div>
+
+  <div class="grid g2" style="margin-top:8px">
+    <div class="card"><h3>Lo que no viene</h3><p>Lo que corre en el servidor: Sync pago, Publish y la tienda de plugins. REA no lo ve. En tu versión, las notas quedan en una carpeta local; para sincronizar, usa Google Drive o OneDrive.</p></div>
+    <div class="card"><h3>Si falla en Windows</h3><p>Algunas herramientas de REA solo funcionan en Linux. Entonces corre la misma guía en WSL o en un VPS.</p></div>
+  </div>
 </div></section>
 
 <section id="exemplos"><div class="wrap">
