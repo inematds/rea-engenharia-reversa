@@ -1,0 +1,485 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.720
+Ahora puedes clonar la aplicación que usas todos los días con un agente de inteligencia artificial.
+
+2
+00:00:04.179 --> 00:00:05.279
+No es exageración:
+
+3
+00:00:05.279 --> 00:00:07.159
+un programador clonó la app de dictado
+
+4
+00:00:07.159 --> 00:00:07.979
+que usa cada mañana,
+
+5
+00:00:07.979 --> 00:00:10.239
+y otro puso dos IAs a competir
+
+6
+00:00:10.239 --> 00:00:11.939
+mientras recreaban un programa de Mac.
+
+7
+00:00:11.939 --> 00:00:13.379
+En este video te muestro qué es
+
+8
+00:00:13.379 --> 00:00:15.179
+esta herramienta, cómo funciona y,
+
+9
+00:00:15.179 --> 00:00:16.599
+al final, quién ganó la carrera.
+
+10
+00:00:16.599 --> 00:00:18.459
+La herramienta se llama REA,
+
+11
+00:00:18.459 --> 00:00:20.359
+por Reverse Engineer Anything:
+
+12
+00:00:20.359 --> 00:00:22.279
+ingeniería inversa de cualquier cosa.
+
+13
+00:00:22.279 --> 00:00:23.759
+Es una skill que enseña a tu
+
+14
+00:00:23.759 --> 00:00:25.419
+agente, Claude Code o Codex,
+
+15
+00:00:25.419 --> 00:00:27.759
+a usar programas para desensamblar software.
+
+16
+00:00:27.759 --> 00:00:29.859
+El agente abre la aplicación ya lista,
+
+17
+00:00:29.859 --> 00:00:31.139
+baja hasta el binario,
+
+18
+00:00:31.139 --> 00:00:32.799
+ese código de máquina que nadie puede
+
+19
+00:00:32.799 --> 00:00:34.619
+leer, y vuelve con tres cosas:
+
+20
+00:00:34.619 --> 00:00:36.339
+un pseudocódigo de lo que hace la
+
+21
+00:00:36.339 --> 00:00:37.959
+app, las pruebas de dónde sacó esa
+
+22
+00:00:37.959 --> 00:00:39.559
+información y lo que aún quedó sin
+
+23
+00:00:39.559 --> 00:00:40.139
+respuesta.
+
+24
+00:00:40.139 --> 00:00:41.239
+Con ese contexto,
+
+25
+00:00:41.239 --> 00:00:42.159
+la reconstruye.
+
+26
+00:00:42.159 --> 00:00:43.319
+El proceso es así.
+
+27
+00:00:43.319 --> 00:00:45.599
+Tú preguntas: ¿cómo funciona esta función?
+
+28
+00:00:45.599 --> 00:00:48.739
+El agente llama a REA por
+
+29
+00:00:48.739 --> 00:00:49.379
+MCP.
+
+30
+00:00:49.379 --> 00:00:51.619
+REA se comunica con las herramientas para
+
+31
+00:00:51.619 --> 00:00:54.059
+desensamblar: Ghidra, Hopper e IDA.
+
+32
+00:00:54.059 --> 00:00:54.899
+Para sitios web,
+
+33
+00:00:54.899 --> 00:00:56.599
+usa las DevTools del navegador.
+
+34
+00:00:56.599 --> 00:00:57.679
+Vuelve el resultado,
+
+35
+00:00:57.679 --> 00:00:59.299
+el agente construye una parte,
+
+36
+00:00:59.299 --> 00:01:01.259
+la prueba, vuelve a preguntar y repite
+
+37
+00:01:01.259 --> 00:01:02.599
+el ciclo hasta que la app esté
+
+38
+00:01:02.599 --> 00:01:03.339
+completa.
+
+39
+00:01:03.339 --> 00:01:04.739
+La clave es el contexto:
+
+40
+00:01:04.739 --> 00:01:06.619
+cuantas más pruebas haya de cómo funciona
+
+41
+00:01:06.619 --> 00:01:08.459
+la app, más fiel será la copia.
+
+42
+00:01:08.459 --> 00:01:09.546
+Primera prueba.
+
+43
+00:01:09.546 --> 00:01:11.259
+Wispr Flow es una app de voz
+
+44
+00:01:11.259 --> 00:01:12.959
+a texto: presionas una tecla,
+
+45
+00:01:12.959 --> 00:01:14.959
+hablas y el texto aparece donde está
+
+46
+00:01:14.959 --> 00:01:15.499
+el cursor.
+
+47
+00:01:15.499 --> 00:01:16.979
+La persona instaló REA,
+
+48
+00:01:16.979 --> 00:01:18.899
+abrió Claude Code y dio un solo
+
+49
+00:01:18.899 --> 00:01:21.979
+pedido: encuentra Wispr Flow en mi computadora,
+
+50
+00:01:21.979 --> 00:01:23.339
+inspecciónalo con REA,
+
+51
+00:01:23.339 --> 00:01:25.499
+usa el sitio oficial como referencia y
+
+52
+00:01:25.499 --> 00:01:27.419
+dame una versión funcional.
+
+53
+00:01:27.419 --> 00:01:29.599
+Resultado: un clon con atajo de teclado,
+
+54
+00:01:29.599 --> 00:01:30.659
+historial de notas,
+
+55
+00:01:30.659 --> 00:01:32.319
+inglés y chino en la misma frase,
+
+56
+00:01:32.319 --> 00:01:33.419
+y transcripción local,
+
+57
+00:01:33.419 --> 00:01:35.139
+sin enviar la voz a internet.
+
+58
+00:01:35.139 --> 00:01:36.699
+Segunda prueba, la carrera.
+
+59
+00:01:36.699 --> 00:01:38.839
+Dos sesiones de Claude al mismo tiempo,
+
+60
+00:01:38.839 --> 00:01:40.039
+el mismo pedido:
+
+61
+00:01:40.039 --> 00:01:42.219
+recrear Preview, el visor de imágenes de
+
+62
+00:01:42.219 --> 00:01:42.519
+Mac.
+
+63
+00:01:42.519 --> 00:01:44.499
+Una usa REA y la otra no.
+
+64
+00:01:44.499 --> 00:01:46.599
+La que no usó REA terminó primero,
+
+65
+00:01:46.599 --> 00:01:48.399
+pero la app salió con fallas.
+
+66
+00:01:48.399 --> 00:01:50.779
+La que usó REA desensambló el original
+
+67
+00:01:50.779 --> 00:01:53.039
+en Ghidra, tardó algunos minutos más y
+
+68
+00:01:53.039 --> 00:01:55.119
+entregó prácticamente el mismo programa:
+
+69
+00:01:55.119 --> 00:01:56.499
+zoom, información,
+
+70
+00:01:56.499 --> 00:01:57.839
+dibujo sobre la imagen,
+
+71
+00:01:57.839 --> 00:01:59.539
+rotación y guardar archivo.
+
+72
+00:01:59.539 --> 00:02:01.379
+Y el dibujo quedó mucho más fluido
+
+73
+00:02:01.379 --> 00:02:03.119
+que en el clon sin REA.
+
+74
+00:02:03.119 --> 00:02:04.799
+Ahora, esto es lo que poca gente
+
+75
+00:02:04.799 --> 00:02:05.259
+dice.
+
+76
+00:02:05.259 --> 00:02:06.419
+Nada de esto es nuevo.
+
+77
+00:02:06.419 --> 00:02:08.139
+IDA existe desde los años noventa.
+
+78
+00:02:08.139 --> 00:02:10.255
+Hopper, desde dos mil once.
+
+79
+00:02:10.255 --> 00:02:11.559
+Ghidra se lanzó en dos mil diecinueve,
+
+80
+00:02:11.559 --> 00:02:13.179
+y lo creó la NSA,
+
+81
+00:02:13.179 --> 00:02:15.359
+la agencia de seguridad de Estados Unidos.
+
+82
+00:02:15.359 --> 00:02:17.279
+Lo que hizo REA fue poner estas
+
+83
+00:02:17.279 --> 00:02:19.019
+herramientas antiguas en manos del agente,
+
+84
+00:02:19.019 --> 00:02:20.499
+con una interfaz sencilla.
+
+85
+00:02:20.499 --> 00:02:22.359
+Por eso consiguió decenas de miles de
+
+86
+00:02:22.359 --> 00:02:23.839
+estrellas en GitHub en pocos días.
+
+87
+00:02:23.839 --> 00:02:24.519
+Y hay más:
+
+88
+00:02:24.519 --> 00:02:27.059
+ni siquiera necesitas REA para empezar.
+
+89
+00:02:27.059 --> 00:02:28.159
+Pídele a tu agente:
+
+90
+00:02:28.159 --> 00:02:30.199
+me gusta esta función de esa app,
+
+91
+00:02:30.199 --> 00:02:32.359
+descubre cómo funciona y hazla para mí.
+
+92
+00:02:32.359 --> 00:02:34.699
+Toma capturas, observa la animación,
+
+93
+00:02:34.699 --> 00:02:36.739
+razona y se acerca bastante,
+
+94
+00:02:36.739 --> 00:02:38.659
+muchas veces más rápido.
+
+95
+00:02:38.659 --> 00:02:40.579
+REA entra para darle precisión.
+
+96
+00:02:40.579 --> 00:02:41.639
+En nuestra prueba,
+
+97
+00:02:41.639 --> 00:02:43.639
+analizó una app pequeña en veinte segundos
+
+98
+00:02:43.639 --> 00:02:45.639
+y se trabó con un archivo gigante.
+
+99
+00:02:45.639 --> 00:02:47.199
+Buena herramienta, no magia.
+
+100
+00:02:47.199 --> 00:02:48.259
+¿Qué cambia con esto?
+
+101
+00:02:48.259 --> 00:02:49.919
+El código dejó de ser la barrera
+
+102
+00:02:49.919 --> 00:02:50.979
+que protege un producto.
+
+103
+00:02:50.979 --> 00:02:52.879
+Las aplicaciones que solo envuelven un modelo
+
+104
+00:02:52.879 --> 00:02:55.259
+de IA van a ser copiadas o
+
+105
+00:02:55.259 --> 00:02:56.799
+absorbidas por el propio modelo.
+
+106
+00:02:56.799 --> 00:02:58.259
+Lo que queda es la marca,
+
+107
+00:02:58.259 --> 00:02:59.859
+los usuarios y los datos.
+
+108
+00:02:59.859 --> 00:03:01.039
+Y una advertencia:
+
+109
+00:03:01.039 --> 00:03:02.939
+clonar para aprender es excelente;
+
+110
+00:03:02.939 --> 00:03:04.459
+copiar y vender el producto de otra
+
+111
+00:03:04.459 --> 00:03:06.759
+persona es un problema de propiedad intelectual.
+
+112
+00:03:06.759 --> 00:03:08.759
+Úsalo para entender una función y crear
+
+113
+00:03:08.759 --> 00:03:09.399
+algo mejor.
+
+114
+00:03:09.399 --> 00:03:11.779
+En resumen: puedes clonar casi cualquier app
+
+115
+00:03:11.779 --> 00:03:12.799
+con un agente,
+
+116
+00:03:12.799 --> 00:03:14.459
+REA hace que la copia sea más
+
+117
+00:03:14.459 --> 00:03:16.359
+fiel y tu diferencial ahora es lo
+
+118
+00:03:16.359 --> 00:03:17.459
+que no se puede copiar.
+
+119
+00:03:17.459 --> 00:03:19.659
+Hay cursos y proyectos abiertos sobre agentes
+
+120
+00:03:19.659 --> 00:03:21.659
+de IA en inema punto club.
+
+121
+00:03:21.659 --> 00:03:22.859
+Hasta la próxima.
